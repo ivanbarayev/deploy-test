@@ -1,0 +1,36 @@
+{
+  "name": "@projectfe/eslint-config",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "exports": {
+    "./base": "./base.ts",
+    "./nextjs": "./nextjs.ts",
+    "./react": "./react.ts"
+  },
+  "scripts": {
+    "clean:cache": "git clean -xdf .cache .turbo",
+    "clean": "pnpm run clean:cache && git clean -xdf node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@eslint/compat": "catalog:eslint9",
+    "@eslint/js": "catalog:eslint9",
+    "@next/eslint-plugin-next": "catalog:next16",
+    "eslint-plugin-import": "catalog:eslint9",
+    "eslint-plugin-react": "catalog:eslint9",
+    "eslint-plugin-react-hooks": "catalog:eslint9",
+    "eslint-plugin-turbo": "catalog:turbo2",
+    "typescript-eslint": "catalog:typescript5"
+  },
+  "devDependencies": {
+    "@projectfe/prettier-config": "workspace:*",
+    "@projectfe/tsconfig": "workspace:*",
+    "@types/node": "catalog:node24",
+    "eslint": "catalog:eslint9",
+    "prettier": "catalog:prettier3",
+    "typescript": "catalog:typescript5"
+  },
+  "prettier": "@projectfe/prettier-config"
+}

@@ -1,0 +1,55 @@
+{
+  "workbench.activityBar.location": "top",
+  "git.autofetch": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "files.autoSaveWhenNoErrors": true,
+  "editor.accessibilitySupport": "on",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "workbench.panel.showLabels": false,
+  "svg.preview.mode": "svg",
+  "editor.minimap.enabled": false,
+  "geminicodeassist.inlineSuggestions.enableAuto": true,
+  "diffEditor.renderSideBySide": true,
+  "makefile.configureOnOpen": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "scminput": true,
+    "markdown": true,
+    "plaintext": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "workbench.editor.showTabIndex": true,
+  "git.confirmSync": false,
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "eslint.runtime": "node",
+  "prettier.ignorePath": ".gitignore",
+  "tailwindCSS.classFunctions": ["cva", "cx", "cn"],
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/dist/**",
+    "**/internal/**",
+    "**/*.test.ts",
+    "**/*.stories.tsx",
+    "zod/dist/types/index.d.ts",
+    "next/router.d.ts",
+    "next/dist/client/router.d.ts"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "accessibility.voice.speechLanguage": "tr-TR",
+  "i18n-ally.localesPaths": ["apps/example-web/messages"],
+  "i18n-ally.keystyle": "nested"
+}

@@ -1,0 +1,16 @@
+{
+  "extends": "@projectfe/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "paths": {
+      "~/*": ["./src/*"],
+      "_appconfig": ["./_appconfig.ts"],
+      "@/general/*": ["./src/app/[locale]/_components/_general/*"],
+      "@/i18n/*": ["./src/i18n/*"]
+    },
+    "plugins": [{ "name": "next" }]
+  },
+  "include": [".", "appconfig.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

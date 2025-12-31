@@ -1,0 +1,52 @@
+{
+  "name": "@projectfe/ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./button": "./src/button.tsx",
+    "./dropdown-menu": "./src/dropdown-menu.tsx",
+    "./form": "./src/form.tsx",
+    "./input": "./src/input.tsx",
+    "./label": "./src/label.tsx",
+    "./separator": "./src/separator.tsx",
+    "./theme": "./src/theme.tsx",
+    "./toast": "./src/toast.tsx"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean:cache": "git clean -xdf .cache .turbo dist",
+    "clean": "pnpm run clean:cache && git clean -xdf node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "catalog:",
+    "@radix-ui/react-icons": "catalog:radix-ui1",
+    "class-variance-authority": "catalog:",
+    "radix-ui": "catalog:radix-ui1",
+    "react-hook-form": "catalog:",
+    "sonner": "catalog:",
+    "tailwind-merge": "catalog:tailwind4"
+  },
+  "devDependencies": {
+    "@projectfe/eslint-config": "workspace:*",
+    "@projectfe/prettier-config": "workspace:*",
+    "@projectfe/tailwind-config": "workspace:*",
+    "@projectfe/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "eslint": "catalog:eslint9",
+    "prettier": "catalog:prettier3",
+    "react": "catalog:react19",
+    "typescript": "catalog:typescript5",
+    "zod": "catalog:zod4"
+  },
+  "peerDependencies": {
+    "react": "catalog:react19",
+    "zod": "catalog:zod4"
+  },
+  "prettier": "@projectfe/prettier-config"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@projectfe/core-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean:cache": "git clean -xdf .cache .turbo dist",
+    "clean": "pnpm run clean:cache && git clean -xdf node_modules",
+    "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "catalog:next16",
+    "@projectfe/core-db": "workspace:*",
+    "@projectfe/validators": "workspace:*",
+    "@trpc/server": "catalog:trpc11",
+    "superjson": "catalog:superjson2",
+    "uuid": "catalog:uuid13",
+    "zod": "catalog:zod4"
+  },
+  "devDependencies": {
+    "@projectfe/eslint-config": "workspace:*",
+    "@projectfe/prettier-config": "workspace:*",
+    "@projectfe/tsconfig": "workspace:*",
+    "eslint": "catalog:eslint9",
+    "prettier": "catalog:prettier3",
+    "typescript": "catalog:typescript5"
+  },
+  "prettier": "@projectfe/prettier-config"
+}

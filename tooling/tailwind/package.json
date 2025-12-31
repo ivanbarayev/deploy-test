@@ -1,0 +1,33 @@
+{
+  "name": "@projectfe/tailwind-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./theme": "./theme.css",
+    "./postcss-config": "./postcss-config.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean:cache": "git clean -xdf .cache .turbo",
+    "clean": "pnpm run clean:cache && git clean -xdf node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:tailwind4",
+    "tw-animate-css": "catalog:tailwind4"
+  },
+  "devDependencies": {
+    "@projectfe/eslint-config": "workspace:*",
+    "@projectfe/prettier-config": "workspace:*",
+    "@projectfe/tsconfig": "workspace:*",
+    "@types/node": "catalog:node24",
+    "eslint": "catalog:eslint9",
+    "prettier": "catalog:prettier3",
+    "typescript": "catalog:typescript5"
+  },
+  "prettier": "@projectfe/prettier-config"
+}

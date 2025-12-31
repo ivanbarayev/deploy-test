@@ -1,0 +1,53 @@
+{
+  "name": "@projectfe/core",
+  "engines": {
+    "node": "^22.21.0",
+    "pnpm": "^10.19.0"
+  },
+  "packageManager": "pnpm@10.19.0",
+  "scripts": {
+    "build": "turbo run build",
+    "build:example-web": "turbo run build -F @projectfe/example-web...",
+    "clean": "pnpm run clean:cache && git clean -xdf node_modules",
+    "clean:workspaces": "turbo run clean",
+    "clean:cache": "git clean -xdf .cache .turbo && turbo run clean:cache",
+    "clean:to-scratch": "pnpm run clean:workspaces && pnpm dlx rimraf pnpm-lock.yaml && pnpm store prune",
+    "install:with-pnpm": "pnpm i",
+    "install:cleaned": "pnpm run clean:workspaces && pnpm run install:with-pnpm",
+    "install:from-scratch": "pnpm run clean:to-scratch && pnpm run install:with-pnpm",
+    "core-db:migrate": "pnpm -F @projectfe/core-db migrate",
+    "core-db:generate": "pnpm -F @projectfe/core-db generate",
+    "core-db:check": "pnpm -F @projectfe/core-db check",
+    "core-db:drizzleup": "pnpm -F @projectfe/core-db drizzleup",
+    "core-db:push": "pnpm -F @projectfe/core-db push",
+    "core-db:pull": "pnpm -F @projectfe/core-db pull",
+    "core-db:export": "pnpm -F @projectfe/core-db export",
+    "core-db:studio": "pnpm -F @projectfe/core-db studio",
+    "dev": "turbo watch dev --continue",
+    "dev:example-web": "turbo watch dev -F @projectfe/example-web...",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
+    "lint-ws": "pnpm dlx sherif@latest",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "lint:lint-ws:format:typecheck": "pnpm run lint && pnpm run lint-ws && pnpm run format && pnpm run typecheck",
+    "lint_fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
+    "lint-ws_fix": "pnpm dlx sherif@latest --fix",
+    "format_fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "lint_fix:lint-ws_fix:format_fix:typecheck": "pnpm run lint_fix && pnpm run lint-ws_fix && pnpm run format_fix && pnpm run typecheck",
+    "check": "pnpm run lint:lint-ws:format:typecheck",
+    "check:fix": "pnpm run lint_fix:lint-ws_fix:format_fix:typecheck",
+    "preinstall": "pnpm lint-ws",
+    "ui-add": "turbo run ui-add",
+    "projectfe": "echo 'This is a top-level script. Use `pnpm run` to run scripts in workspaces.'"
+  },
+  "devDependencies": {
+    "@projectfe/prettier-config": "workspace:*",
+    "@turbo/gen": "catalog:turbo2",
+    "dotenv-cli": "catalog:",
+    "prettier": "catalog:prettier3",
+    "turbo": "catalog:turbo2",
+    "typescript": "catalog:typescript5"
+  },
+  "prettier": "@projectfe/prettier-config",
+  "private": true
+}
