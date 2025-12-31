@@ -91,7 +91,7 @@ export default function PaymentsTestPage() {
   const [orderId, setOrderId] = useState("");
   const [orderDescription, setOrderDescription] = useState("Test payment");
   const [ipnCallbackUrl, setIpnCallbackUrl] = useState(
-    "https://webhook.site/e50b3216-b880-4c89-b8a1-33d098966ce4",
+    "https://deploy-test-example-web.vercel.app/api/callbacks/nowpayments",
   );
 
   // Filter state

@@ -13,6 +13,7 @@ const CreatePaymentSchema = z.object({
   orderDescription: z.string().optional(),
   successUrl: z.string().url().optional(),
   cancelUrl: z.string().url().optional(),
+  ipnCallbackUrl: z.string().url().optional(),
   userId: z.number().optional(),
   projectId: z.string().optional(),
   metadata: z.record(z.string(), z.unknown()).optional(),
@@ -59,6 +60,22 @@ export async function POST(request: NextRequest) {
       request.headers.get("X-Idempotency-Key") ??
       `payment_${Date.now()}_${Math.random().toString(36).substring(7)}`;
 
+    console.log({
+      idempotencyKey,
+      amount: validated.amount,
+      currency: validated.currency,
+      type: "one_time",
+      payCurrency: validated.payCurrency,
+      orderId: validated.orderId,
+      orderDescription: validated.orderDescription,
+      successUrl: validated.successUrl,
+      cancelUrl: validated.cancelUrl,
+      ipnCallbackUrl: validated.ipnCallbackUrl,
+      userId: validated.userId,
+      projectId: validated.projectId,
+      metadata: validated.metadata,
+    });
+
     const result = await paymentService.createPayment(validated.provider, {
       idempotencyKey,
       amount: validated.amount,
@@ -69,6 +86,7 @@ export async function POST(request: NextRequest) {
       orderDescription: validated.orderDescription,
       successUrl: validated.successUrl,
       cancelUrl: validated.cancelUrl,
+      ipnCallbackUrl: validated.ipnCallbackUrl,
       userId: validated.userId,
       projectId: validated.projectId,
       metadata: validated.metadata,
